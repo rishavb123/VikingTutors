@@ -12,7 +12,10 @@
     <script src="https://apis.google.com/js/client.js?onload=initGapi"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/alexcorvi/anchorme.js/gh-pages/dist-browser/anchorme.js"></script>
     <script src="config.js"></script>
+    <script src="util.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
@@ -57,5 +60,10 @@
     <div id="test">
 
     </div>
+    <template id="videoTemplate">
+        <h1>{{title}}</h1>
+        {{embed}}
+        <p>{{description}}</p>
+    </template>
 </body>
 </html>
