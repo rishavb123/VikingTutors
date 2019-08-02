@@ -18,11 +18,6 @@ $(document).ready(() => {
 
 });
 
-// $(document).on('click', '.dropdown-item', function (e) {
-//     console.log($(e.target).hasClass('dropdown-item'));
-//     if(!$(e.target).hasClass('dropdown-item'))
-//         e.stopPropagation();
-// });
 
 $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     if (!$(this).next().hasClass('show')) {

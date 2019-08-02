@@ -15,9 +15,6 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/alexcorvi/anchorme.js/gh-pages/dist-browser/anchorme.js"></script>
-    <script src="config.js"></script>
-    <script src="util.js"></script>
-    <script src="app.js"></script>
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -39,18 +36,23 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                            <a class="dropdown-item" href="#">Science</a>
+                            <a class="dropdown-toggle" href="#"></a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Math</a></li>
-                                <li><a class="dropdown-item" href="#">Biology</a></li>
+                                <li><a class="dropdown-item" href="#">Physics</a></li>
                                 <li><a class="dropdown-item" href="#">Chemistry</a></li>
+                                <li><a class="dropdown-item" href="#">Anatomy</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" href="#">Biology</a>
+                                    <a class="dropdown-toggle" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Mitosis</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li><a class="dropdown-item" href="#">Math</a></li>
-                        <li><a class="dropdown-item" href="#">Biology</a></li>
-                        <li><a class="dropdown-item" href="#">Chemistry</a></li>
-                        <li><a class="dropdown-item" href="#">Physics</a></li>
-                        <li><a class="dropdown-item" href="#">Anatomy</a></li>
+                        <li><a class="dropdown-item" href="#">English</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -72,5 +74,8 @@
         {{embed}}
         <p>{{description}}</p>
     </template>
+    <script src="config.js"></script>
+    <script src="util.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
