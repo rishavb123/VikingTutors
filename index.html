@@ -33,7 +33,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Topics
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!-- <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown"></ul> -->
+                    <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown">
                         <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Science</a>
                             <a class="dropdown-toggle" href="#"></a>
@@ -52,6 +53,7 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Math</a></li>
                         <li><a class="dropdown-item" href="#">English</a></li>
+                        
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -68,10 +70,21 @@
         </div>
     </nav>
     <div id="test"></div>
-    <template id="videoTemplate">
+    <template id="video-template">
         <h1>{{title}}</h1>
         {{embed}}
         <p>{{description}}</p>
+    </template>
+    <template id="dropdown-item-template">
+        <li><a class="dropdown-item" href="#">{{name}}</a></li>
+    </template> 
+    <template id="dropdown-submenu-template">
+        <li class="dropdown-submenu">
+            <a class="dropdown-item" href="#">{{name}}</a>
+            <a class="dropdown-toggle" href="#"></a>
+            <ul class="dropdown-menu" id={{id}}>
+            </ul>
+        </li>
     </template>
     <script src="config.js"></script>
     <script src="util.js"></script>
