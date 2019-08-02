@@ -9,7 +9,9 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-gapi.client.setApiKey("AIzaSyAqIAzdRsjJOpYAK8tfWK2VZfRYbgbKTfg");
-gapi.client.load("youtube", "v3");
+function initGapi() {
+    gapi.client.setApiKey("YOUR_PUBLIC_KEY");
+    gapi.client.load("youtube", "v3");
+}
 
 const db = firebase.firestore();
