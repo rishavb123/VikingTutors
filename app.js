@@ -79,19 +79,5 @@ db.collection("topics").get().then((querySnapshot) => {
 
     display('topic-root', hierarchy);
     $(".dropdown-toggle").dropdown();
-    // $("#topic-root").append('<li class="dropdown-submenu">    <a class="dropdown-item" href="#">Science</a>    <a class="dropdown-toggle" href="#"></a>    <ul class="dropdown-menu" id="topic-EjIX4yHl66aNPZdP9yef">        <li class="dropdown-submenu">            <a class="dropdown-item" href="#">Biology</a>            <a class="dropdown-toggle" href="#"></a>            <ul class="dropdown-menu" id="topic-x4AmdqCrnp5WoOzsmv9d">                <li><a class="dropdown-item" href="#">Mitosis</a></li>            </ul>        </li>    </ul></li>');
-});
-
-$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-    if (!$(this).next().hasClass('show')) {
-        $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
-    }
-    let $subMenu = $(this).next('.dropdown-menu');
-    $subMenu.toggleClass('show');
-
-    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-        $('.dropdown-submenu .show').removeClass('show');
-    });
-
-    return false;
+    $('.dropdown-toggle').dropdownHover();
 });

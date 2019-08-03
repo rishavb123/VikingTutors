@@ -14,6 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/alexcorvi/anchorme.js/gh-pages/dist-browser/anchorme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js" integrity="sha256-oZUp5ULh9oikWgL4PJ/ceUdVHxFP0v2F1wQBC7iLuOQ=" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -30,31 +31,11 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                         Topics
                     </a>
-                    <!-- <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown"></ul> -->
-                    <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item" href="#">Science</a>
-                            <a class="dropdown-toggle" href="#"></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Physics</a></li>
-                                <li><a class="dropdown-item" href="#">Chemistry</a></li>
-                                <li><a class="dropdown-item" href="#">Anatomy</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="#">Biology</a>
-                                    <a class="dropdown-toggle" href="#"></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Mitosis</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Math</a></li>
-                        <li><a class="dropdown-item" href="#">English</a></li>
-                        
-                    </ul>
+                    <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown"></ul>
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Feedback</a>
