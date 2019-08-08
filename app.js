@@ -1,3 +1,4 @@
+const db = firebase.firestore();
 
 $(document).ready(() => {
     

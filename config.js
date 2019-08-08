@@ -9,6 +9,4 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
-
 const API_KEY = "AIzaSyAqIAzdRsjJOpYAK8tfWK2VZfRYbgbKTfg";
