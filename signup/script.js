@@ -2,7 +2,7 @@ $('.btn').click(() => {
     let email = $('#emailField').val();
     let password = $('#passwordField').val();
     let confirmPassword = $('#confirmPasswordField').val();
-    if(password !== confirmPassword)
+    if(password === confirmPassword)
         if(email.split("@")[1] === "sbstudents.org" || email.split("@")[1] === "sbschools.org" || email.split("@")[1] === "bhagat.io")
             firebase.auth().createUserWithEmailAndPassword(email, password);
         else
