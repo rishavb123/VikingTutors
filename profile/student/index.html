@@ -72,7 +72,7 @@
         <button class="btn btn-light" onclick="firebase.auth().sendPasswordResetEmail(firebase.auth().currentUser.email).then(() => alert('Email Sent')).catch(() => alert('Error Sending Email: ' + e))">Reset Password</button>
         <br />
         <br />
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary save-button">Save</button>
         <button class="btn btn-danger" onclick="firebase.auth().signOut()">Sign Out</button>
     </div>
     <template id="dropdown-item-template">

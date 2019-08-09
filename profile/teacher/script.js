@@ -23,7 +23,6 @@ firebase.auth().onAuthStateChanged(user => {
 });
 
 $('.save-button').click(() => {
-    console.log("Clicked!");
     let data = {
         name: {
             first: $('#firstNameInput').val(),
