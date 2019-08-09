@@ -13,6 +13,8 @@ $('.btn').click(() => {
 });
 
 firebase.auth().onAuthStateChanged(user => {
-    if(user)
+    if(user) {
+        user.sendEmailVerification();
         location.href="../index.html"
+    }
 });
