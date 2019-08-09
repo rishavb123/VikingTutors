@@ -1,14 +1,5 @@
-.nav-item {
-    font-family: fantasy;
-}
-
 body {
     background-color: #b5b324;
-}
-
-#logo {
-    width: 126px;
-    height: 49px;
 }
 
 #test {
@@ -21,20 +12,4 @@ iframe {
     margin-left: 13vw;
     width: 64vw;
     height: 80vh;
-}
-
-.dropdown-submenu {
-    position: relative;
-}
-
-.dropdown-submenu a::after {
-    transform: rotate(-90deg);
-    position: absolute;
-    right: 6px;
-    top: .8em;
-}
-
-.dropdown-submenu .dropdown-menu {
-    top: 0;
-    left: 100%;
 }
