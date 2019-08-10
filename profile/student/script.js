@@ -28,8 +28,10 @@ $('.save-button').click(() => {
             last: $("#lastNameInput").val()
         }
     };
-    db.collection("students").doc(docId).update(data);
-    firebase.auth().currentUser.updateProfile({
-        displayName: data.name.first + " " + data.name.last
-    });
+    Promise.all([
+        db.collection("students").doc(docId).update(data),
+        firebase.auth().currentUser.updateProfile({
+            displayName: data.name.first + " " + data.name.last
+        })
+    ]).then(() => alert("Saved!"));
 });

@@ -30,8 +30,10 @@ $('.save-button').click(() => {
         },
         honorific: honorifics[document.getElementById("titleInput").selectedIndex]
     };
-    db.collection("teachers").doc(docId).update(data);
-    firebase.auth().currentUser.updateProfile({
-        displayName: data.honorific + data.name.last
-    });
+    Promise.all([
+        db.collection("teachers").doc(docId).update(data),
+        firebase.auth().currentUser.updateProfile({
+            displayName: data.honorific + data.name.last
+        })
+    ]).then(() => alert("Saved!"));
 });
