@@ -1,4 +1,4 @@
-$('.btn').click(() => {
+$('#signUpBtn').click(() => {
     let email = $('#emailField').val();
     let password = $('#passwordField').val();
 
