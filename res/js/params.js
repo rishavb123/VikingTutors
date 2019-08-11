@@ -1,6 +1,10 @@
 function getUrlParameters() {
+    return getUrlParametersFromUrl(window.location.href);
+}
+
+function getUrlParametersFromUrl(url) {
     let vars = {};
-    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
     });
     return vars;
