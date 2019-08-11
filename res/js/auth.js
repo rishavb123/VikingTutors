@@ -1,3 +1,5 @@
+function onAuthStateChanged(user) {}
+
 firebase.auth().onAuthStateChanged(user => {
     if(user) {
         let domain = firebase.auth().currentUser.email.split("@")[1];
@@ -6,4 +8,5 @@ firebase.auth().onAuthStateChanged(user => {
     }
     else
         location.href="login/index.html";
+    onAuthStateChanged(user);
 });
