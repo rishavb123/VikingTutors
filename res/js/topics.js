@@ -1,4 +1,10 @@
 const getFromHierarchy = (path, hierarchy, topics) => {
+    if(path === "") {
+        return {
+            name: "Topic",
+            subtopics: hierarchy
+        };
+    }
     if(topics[path].superTopic) {
         let superVal = getFromHierarchy(topics[path].superTopic, hierarchy, topics);
         return superVal? superVal.subtopics[path]: null;
