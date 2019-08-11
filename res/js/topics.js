@@ -1,5 +1,5 @@
 const getFromHierarchy = (path, hierarchy, topics) => {
-    if(path === "") {
+    if(path === "" || path === "topics/root") {
         return {
             name: "Topic",
             subtopics: hierarchy
