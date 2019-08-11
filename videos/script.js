@@ -16,11 +16,22 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     Promise.all(selectedTopics.map(topic => db.collection("videos").where("topics", "array-contains", topic).get())).then((querySnapshots) => {
         querySnapshots.forEach((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                getVideoData(doc.data().videoId, (data) => {
-                    data.embed = new Handlebars.SafeString(data.embed);
-                    data.description = new Handlebars.SafeString(anchorme(data.description.replace(/\n/g,"<br />")));
-                    const html = template(data);
-                    $("#video-container").append($(html).attr("class", "video"));
+                let videoData = doc.data();
+                videoData.teacher.get().then(teacherDoc => {
+                    let teacher = teacherDoc.data();
+                    getVideoData(videoData.videoId, (data) => {
+                        data.embed = new Handlebars.SafeString(data.embed);
+                        data.description = new Handlebars.SafeString(anchorme(data.description.replace(/\n/g,"<br />"), {
+                            attributes: [{
+                                name: "class",
+                                value: "anchorme-link"
+                            }]
+                        }));
+                        data.id = videoData.videoId;
+                        data.teacher = teacher.honorific + teacher.name.last;
+                        const html = template(data);
+                        $("#video-container").append(html);
+                    });
                 });
             });
         });

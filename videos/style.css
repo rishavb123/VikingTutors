@@ -7,3 +7,36 @@ body {
     margin-right: 5vw;
     margin-top: 15vh;
 }
+
+.video {
+    background-color: #c6c435;
+    margin-bottom: 2vh;
+    width: 100%;
+    width: 90vw;
+    height: 20vw;
+}
+ 
+.thumbnail {
+    width: 40%;
+    height: 100%;
+}
+
+.video-text {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.anchorme-link {
+    width: 100%;
+}
+
+h1 {
+    font-size: 140%;
+}
+
+@media only screen and (max-width: 500px) {
+    .video {
+        height: 30vw;
+    }
+}

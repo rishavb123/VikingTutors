@@ -1,0 +1,6 @@
+::-webkit-scrollbar {
+    background: white;;  /* Optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+    background: black;
+}
