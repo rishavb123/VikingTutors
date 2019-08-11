@@ -3,7 +3,11 @@ $(document).ready(() => {
     const source = $("#video-template")[0].innerHTML;
     const template = Handlebars.compile(source);
 
-    db.collection("videos").get().then((querySnapshot) => {
+    let params = getUrlParameters();
+    console.log(params);
+
+    db.collection("videos").where("topics", "array-contains", params.t).get().then((querySnapshot) => {
+        console.log(querySnapshot.size);
         querySnapshot.forEach((doc) => {
             getVideoData(doc.data().videoId, (data) => {
                 data.embed = new Handlebars.SafeString(data.embed);
