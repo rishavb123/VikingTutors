@@ -1,18 +1,10 @@
 let selectedTopicPath = "";
 let navResults;
 
-// <select class="form-control" id="topicInput">
-//     <option>Mr. </option>
-//     <option>Mrs. </option>
-//     <option>Ms. </option>
-//     <option>Dr. </option>
-//     <option>Miss </option>
-// </select>
-
-function name() {
-    console.log(getFromHierarchy(selectedTopicPath, navResults.hierarchy, navResults.topics).name);
-}
-setInterval(name, 1000);
+// function name() {
+//     console.log(getFromHierarchy(selectedTopicPath, navResults.hierarchy, navResults.topics).name);
+// }
+// setInterval(name, 1000);
 
 function onNavReady(querySnapshot, hierarchy, topics) {
     navResults = { querySnapshot, hierarchy, topics };
