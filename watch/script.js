@@ -7,7 +7,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     db.collection("videos").where("videoId", "==", params.v).get().then((querySnapshot) => {
         let doc = querySnapshot.docs[0];
         let videoData = doc.data();
-        videoData.teacher.get().then(teacherDoc => {
+        db.collection("videos").doc(videoData.teacher).get().then(teacherDoc => {
             let teacher = teacherDoc.data();
             getVideoData(videoData.videoId, (data) => {
                 data.embed = new Handlebars.SafeString(data.embed);

@@ -17,7 +17,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
         querySnapshots.forEach((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let videoData = doc.data();
-                videoData.teacher.get().then(teacherDoc => {
+                db.collection("videos").doc(videoData.teacher).get().then(teacherDoc => {
                     let teacher = teacherDoc.data();
                     getVideoData(videoData.videoId, (data) => {
                         data.embed = new Handlebars.SafeString(data.embed);
