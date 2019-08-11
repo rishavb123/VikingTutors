@@ -4,16 +4,15 @@ body {
 
 #video-container {
     margin-top: 10vh;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 iframe {
-    min-width: 64vw;
-    min-height: 36vw;
+    min-width: 100vw;
+    min-height: 35vw;
 }
 
 .anchorme-link {
@@ -25,7 +24,13 @@ iframe {
 }
 
 h1 {
-    font-size: 140%;
+    font-size: 180%;
+}
+
+.video-text {
+    width: 90vw;
+    min-height: 50vh;
+    overflow: auto;
 }
 
 @media only screen and (max-width: 500px) {
