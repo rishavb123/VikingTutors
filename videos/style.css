@@ -2,14 +2,8 @@ body {
     background-color: #b5b324;
 }
 
-#test {
+#video-container {
     margin-left: 5vw;
     margin-right: 5vw;
     margin-top: 15vh;
-}
-
-iframe {
-    margin-left: 13vw;
-    width: 64vw;
-    height: 80vh;
 }

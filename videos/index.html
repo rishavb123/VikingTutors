@@ -55,10 +55,10 @@
             </form>
         </div>
     </nav>
-    <div id="test"></div>
+    <div id="video-container"></div>
     <template id="video-template">
         <h1>{{title}}</h1>
-        {{embed}}
+        <img src={{thumbnails.medium.url}} class="thumbnail"/>
         <p>{{description}}</p>
     </template>
     <template id="dropdown-item-template">

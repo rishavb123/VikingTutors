@@ -3,12 +3,9 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     const template = Handlebars.compile(source);
 
     let params = getUrlParameters();
-    console.log(params);
-    console.log(hierarchy);
 
     let selectedTopics = [];
     let searchTopic = getFromHierarchy("topics/" + params.t, hierarchy, topics);
-    console.log(searchTopic);
     const select = (topic, path) => {
         selectedTopics.push(path.split("/")[1]);
         for(let subPath in topic.subtopics) {
@@ -16,7 +13,6 @@ function onNavReady(querySnapshot, hierarchy, topics) {
         }
     }
     select(searchTopic, "topics/" + params.t);
-    console.log(selectedTopics);
     Promise.all(selectedTopics.map(topic => db.collection("videos").where("topics", "array-contains", topic).get())).then((querySnapshots) => {
         querySnapshots.forEach((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -24,7 +20,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                     data.embed = new Handlebars.SafeString(data.embed);
                     data.description = new Handlebars.SafeString(anchorme(data.description.replace(/\n/g,"<br />")));
                     const html = template(data);
-                    $("#test").append($(html).attr("class", "video"));
+                    $("#video-container").append($(html).attr("class", "video"));
                 });
             });
         });
