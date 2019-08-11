@@ -1,42 +1,10 @@
 const db = firebase.firestore();
 
-db.collection("topics").get().then((querySnapshot) => {
-    let topics = {};
-    querySnapshot.forEach((doc) => {
-        let temp = doc.data();
-        if(temp.superTopic)
-            temp.superTopic = temp.superTopic.path;
-        topics[doc.ref.path] = temp;
-    });
-    let hierarchy = {};
-    const get = (path) => {
-        if(topics[path].superTopic) {
-            let superVal = get(topics[path].superTopic);
-            return superVal? superVal.subtopics[path]: null;
-        }
-        return hierarchy[path];
-    };
-    const set = (path) => {
-        if(get(path)) return;
-        let val = {...topics[path]};
-        val.subtopics = {};
-        val.displayed = false;
-        if(!val.superTopic)
-            hierarchy[path] = val;
-        else {
-            let obj = get(val.superTopic);
-            if(obj) {
-                obj.subtopics[path] = val;
-            } else {
-                set(val.superTopic);
-                set(path)
-            }
-        }
-    };
+function onNavReady(querySnapshot, hierarchy, topics) {}
 
-    for(let path in topics) {
-        set(path);
-    }
+db.collection("topics").get().then((querySnapshot) => {
+    
+    [hierarchy, topics] = createHierarchy(querySnapshot);
 
     const source = $("#dropdown-item-template")[0].innerHTML;
     const dropDownItem = Handlebars.compile(source);
@@ -46,7 +14,7 @@ db.collection("topics").get().then((querySnapshot) => {
 
     const display = (menuId, obj) => {
         for(let path in obj) {
-            let val = get(path);
+            let val = getFromHierarchy(path, hierarchy, topics);
             if(Object.keys(val.subtopics).length == 0) {
                 $("#" + menuId).append(dropDownItem({
                     name: val.name,
@@ -68,4 +36,7 @@ db.collection("topics").get().then((querySnapshot) => {
     display('topic-root', hierarchy);
     $(".dropdown-toggle").dropdown();
     $('.dropdown-toggle').dropdownHover();
+
+    onNavReady(querySnapshot, hierarchy, topics);
+
 });

@@ -1,10 +1,10 @@
-$(document).ready(() => {
-    
+function onNavReady(querySnapshot, hierarchy, topics) {
     const source = $("#video-template")[0].innerHTML;
     const template = Handlebars.compile(source);
 
     let params = getUrlParameters();
     console.log(params);
+    console.log(hierarchy);
 
     db.collection("videos").where("topics", "array-contains", params.t).get().then((querySnapshot) => {
         console.log(querySnapshot.size);
@@ -17,5 +17,4 @@ $(document).ready(() => {
             });
         });
     });
-
-});
+}
