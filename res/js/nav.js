@@ -48,12 +48,17 @@ db.collection("topics").get().then((querySnapshot) => {
         for(let path in obj) {
             let val = get(path);
             if(Object.keys(val.subtopics).length == 0) {
-                $("#" + menuId).append(dropDownItem(val));
+                $("#" + menuId).append(dropDownItem({
+                    name: val.name,
+                    id: val.id,
+                    topic: path.split("/")[1]
+                }));
             } else {
                 const id = path.replace("s/", "-");
                 $("#" + menuId).append(dropDownSubMenu({
                     name: val.name,
-                    id
+                    id,
+                    topic: path.split("/")[1]
                 }));
                 display(id, val.subtopics);
             }
