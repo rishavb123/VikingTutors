@@ -1,0 +1,35 @@
+body {
+    background-color: #b5b324;
+}
+
+#video-container {
+    margin-top: 10vh;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe {
+    min-width: 64vw;
+    min-height: 36vw;
+}
+
+.anchorme-link {
+    width: 100%;
+}
+
+.teacher {
+    color: blue;
+}
+
+h1 {
+    font-size: 140%;
+}
+
+@media only screen and (max-width: 500px) {
+    .video {
+        height: 30vw;
+    }
+}
