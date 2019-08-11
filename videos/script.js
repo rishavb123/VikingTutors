@@ -13,9 +13,11 @@ function onNavReady(querySnapshot, hierarchy, topics) {
         }
     }
     select(searchTopic, "topics/" + params.t);
+    let noVids = true;
     Promise.all(selectedTopics.map(topic => db.collection("videos").where("topics", "array-contains", topic).get())).then((querySnapshots) => {
         querySnapshots.forEach((querySnapshot) => {
             querySnapshot.forEach((doc) => {
+                noVids = false;
                 let videoData = doc.data();
                 db.collection("teachers").doc(videoData.teacher).get().then(teacherDoc => {
                     let teacher = teacherDoc.data();
@@ -35,6 +37,8 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                 });
             });
         });
+        if(noVids) 
+                $('#video-container').append("<p style='font-size: 200%'>Sorry there are currently no videos on this topic</p>");
     });
 }
 
