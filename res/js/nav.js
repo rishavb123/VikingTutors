@@ -40,3 +40,7 @@ db.collection("topics").get().then((querySnapshot) => {
     onNavReady(querySnapshot, hierarchy, topics);
 
 });
+
+function onAuthStateChanged(user, domain) {
+    console.log("Nav: auth changed " + domain );
+}
