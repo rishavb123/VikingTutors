@@ -31,6 +31,10 @@ body {
     width: 100%;
 }
 
+.teacher {
+    color: blue;
+}
+
 h1 {
     font-size: 140%;
 }

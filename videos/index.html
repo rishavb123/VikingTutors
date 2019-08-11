@@ -60,10 +60,10 @@
     <div id="video-container" class="container"></div>
     <template id="video-template">
         <div class="video row" id={{id}}>
-            <img src={{thumbnails.medium.url}} class="thumbnail col"/>
+            <img src={{thumbnails.medium.url}} class="thumbnail col" onclick="openVideo(event)"/>
             <div class="video-text col">
                 <h1 class="row">{{title}}</h1>
-                <p class="row">{{teacher}}</p>
+                <p class="row teacher">{{teacher}}</p>
                 <p class="row">{{description}}</p>
             </div>
         </div>

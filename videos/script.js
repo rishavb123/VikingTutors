@@ -37,3 +37,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
         });
     });
 }
+
+function openVideo(e) {
+    console.log($(e.target.parentNode).attr('id'));
+}
