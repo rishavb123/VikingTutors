@@ -8,6 +8,8 @@ firebase.auth().onAuthStateChanged(user => {
                 firebase.auth().signOut();
             else
                 location.href="../student/index.html";
+        else
+            onAuthStateChanged(user, domain);
         $('#emailInput').val(user.email);
         db.collection("teachers").where("uid", "==", user.uid).get().then((querySnapshot) => {
             let data = querySnapshot.docs[0].data();

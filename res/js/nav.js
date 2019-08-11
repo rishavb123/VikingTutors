@@ -41,6 +41,9 @@ db.collection("topics").get().then((querySnapshot) => {
 
 });
 
+let root = ".";
+
 function onAuthStateChanged(user, domain) {
-    console.log("Nav: auth changed " + domain );
+    if(domain === "bhagat.io" || domain === "sbschools.org")
+        $(".navbar-nav").append(`<li class="nav-item"><a class="nav-link" href="${root}/upload/index.html">Upload</a></li>`);
 }

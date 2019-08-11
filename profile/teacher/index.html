@@ -82,11 +82,11 @@
         <button class="btn btn-danger" onclick="firebase.auth().signOut()">Sign Out</button>
     </div>
     <template id="dropdown-item-template">
-        <li><a class="dropdown-item" href="#">{{name}}</a></li>
+        <li><a class="dropdown-item" href="../../videos/index.html?t={{topic}}">{{name}}</a></li>
     </template> 
     <template id="dropdown-submenu-template">
         <li class="dropdown-submenu">
-            <a class="dropdown-item" href="#">{{name}}</a>
+            <a class="dropdown-item" href="../../videos/index.html?t={{topic}}">{{name}}</a>
             <a class="dropdown-toggle" href="#"></a>
             <ul class="dropdown-menu" id={{id}}>
             </ul>
@@ -96,6 +96,7 @@
     <script src="../../res/js/config.js"></script>
     <script src="../../res/js/topics.js"></script>
     <script src="../../res/js/nav.js"></script>
+    <script>root = "../.."</script>
     <script src="script.js"></script>
 
 </body>
