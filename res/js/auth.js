@@ -9,5 +9,5 @@ firebase.auth().onAuthStateChanged(user => {
             onAuthStateChanged(user, domain);
     }
     else
-        location.href="login/index.html";
+        location.href= root + "/login/index.html";
 });
