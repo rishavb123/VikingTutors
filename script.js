@@ -1,1 +1,1 @@
-new Rellax(".rellax")
+new Rellax(".rellax");
