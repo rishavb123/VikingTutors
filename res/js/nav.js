@@ -1,5 +1,7 @@
 const db = firebase.firestore();
 
+const isTouchDevice = 'ontouchstart' in document.documentElement;
+
 function onNavReady(querySnapshot, hierarchy, topics) {}
 
 db.collection("topics").get().then((querySnapshot) => {
@@ -9,7 +11,7 @@ db.collection("topics").get().then((querySnapshot) => {
     const source = $("#dropdown-item-template")[0].innerHTML;
     const dropDownItem = Handlebars.compile(source);
 
-    const source2 = $("#dropdown-submenu-template")[0].innerHTML;
+    const source2 = $(isTouchDevice? "#dropdown-submenu-template-mobile": "#dropdown-submenu-template")[0].innerHTML;
     const dropDownSubMenu = Handlebars.compile(source2);
 
     const display = (menuId, obj) => {
@@ -26,7 +28,8 @@ db.collection("topics").get().then((querySnapshot) => {
                 $("#" + menuId).append(dropDownSubMenu({
                     name: val.name,
                     id,
-                    topic: path.split("/")[1]
+                    topic: path.split("/")[1],
+                    open: isTouchDevice? "show": ""
                 }));
                 display(id, val.subtopics);
             }
@@ -36,6 +39,12 @@ db.collection("topics").get().then((querySnapshot) => {
     display('topic-root', hierarchy);
     $(".dropdown-toggle").dropdown();
     $('.dropdown-toggle').dropdownHover();
+
+    if(isTouchDevice) {
+        $('.toggle').click((e) => {
+            $('#' + e.target.id.split("_")[1]).toggleClass("show");
+        });
+    }
 
     onNavReady(querySnapshot, hierarchy, topics);
 

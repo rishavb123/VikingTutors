@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Viking Tutors</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -35,7 +35,7 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                         Topics
                     </a>
                     <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown"></ul>
@@ -64,6 +64,14 @@
         <li class="dropdown-submenu">
             <a class="dropdown-item" href="videos/index.html?t={{topic}}">{{name}}</a>
             <a class="dropdown-toggle" href="#"></a>
+            <ul class="dropdown-menu" id={{id}}>
+            </ul>
+        </li>
+    </template>
+    <template id="dropdown-submenu-template-mobile">
+        <li class="dropdown-submenu">
+            <a class="dropdown-item" href="videos/index.html?t={{topic}}">{{name}}<a class="toggle" id="toggle_{{id}}" href="#">&#x25BC;</a></a>
+            
             <ul class="dropdown-menu" id={{id}}>
             </ul>
         </li>
