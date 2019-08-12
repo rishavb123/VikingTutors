@@ -13,11 +13,22 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
     <script src="../res/js/config.js"></script>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            background-image: url("../res/imgs/pattern.jpg");
+            background-size: 30%;
+        }
+
         #container {
             margin: 0;
-            width: 100vw;
+            width: 70vw;
             height: 100vh;
-            background-color: black; 
+            background-image: linear-gradient(-45deg, #cc00d393, #3f013fcc, #000000), url("../res/imgs/sbhs.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -28,9 +39,22 @@
             margin-top: 5vh;
         }
 
-        h1 {
+        .heading {
             margin-bottom: 5vh;
+            text-align: center;
+        }
+
+        .heading p {
             color: white;
+        }
+        
+        h1 {
+            color: #fcff4d;
+        }
+
+        h2 {
+            margin-bottom: 5vh;
+            color: #e7e7e7;
         }
 
         p {
@@ -43,7 +67,11 @@
 <body>
     
     <div id="container">
-        <h1>Sign Up</h1>
+        <div class="heading">
+            <h1>Welcome to Viking Tutors</h1>
+            <p>A place for all South Brunswick students to access personalized studying material</p>
+        </div>
+        <h2>Sign Up</h2>
         <input type="text" id="emailField" placeholder="Email" />
         <input type="password" id="passwordField" placeholder="Password" />
         <input type="password" id="confirmPasswordField" placeholder="Confirm Password" />
