@@ -7,6 +7,8 @@ let numOfTopics = 0;
 // }
 // setInterval(name, 1000);
 
+// selectedTopicPath.map(s => getFromHierarchy(s, navResults.hierarchy, navResults.topics).name).filter(s => s !== "Topic");
+
 function onNavReady(querySnapshot, hierarchy, topics) {
     navResults = { querySnapshot, hierarchy, topics };
 
