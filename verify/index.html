@@ -1,1 +1,83 @@
-Verifiy ur email
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
+    <script src="../res/js/config.js"></script>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            background-image: url("../res/imgs/pattern.jpg");
+            background-size: 30%;
+        }
+
+        #container {
+            margin: 0;
+            width: 70vw;
+            height: 100vh;
+            background-image: linear-gradient(-45deg, #cc00d393, #3f013fcc, #000000), url("../res/imgs/sbhs.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+
+        .heading {
+            text-align: center;
+        }
+
+        .heading p {
+            color: white;
+        }
+        
+        h1 {
+            color: #fcff4d;
+        }
+
+        p {
+            margin-top: 3vh;
+            margin-bottom: 1vh;
+            color: white;
+        }
+
+        .resend-btn {
+            position: fixed;
+            left: 0vw;
+            top: 0vh;
+            width: 10vw;
+            height: 5vh;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div class="heading">
+            <h1>You must verify your email before viewing this page</h1>
+            <p>You should have gotten an email when you created your account</p>
+            <p>If you would like to resend the email then click the green button</p>
+            <div class="btn-group">
+                    <button class="btn btn-dark reset">Reset</button>
+                    <button class="btn btn-primary toggle">Toggle Movement</button>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success resend-btn">Resend!</button>
+    <script src="./script.js"></script>
+
+</body>
+</html>
