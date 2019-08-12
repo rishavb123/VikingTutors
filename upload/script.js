@@ -11,6 +11,8 @@ function onNavReady(querySnapshot, hierarchy, topics) {
 function onAuthStateChanged(user, domain) {
     if(domain === "sbstudents.org")
         location.href = root + "/index.html";
+    else
+        $(".navbar-nav").append(`<li class="nav-item"><a class="nav-link" href="${root}/upload/index.html">Upload</a></li>`);
 }
 
 function updateUI(topicIndex) {
