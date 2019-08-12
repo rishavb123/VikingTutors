@@ -5,14 +5,17 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     let params = getUrlParameters();
 
     let selectedTopics = [];
-    let searchTopic = getFromHierarchy("topics/" + params.t, hierarchy, topics);
-    const select = (topic, path) => {
-        selectedTopics.push(path.split("/")[1]);
-        for(let subPath in topic.subtopics) {
-            select(topic.subtopics[subPath], subPath);
+    if(params.t) {
+        let searchTopic = getFromHierarchy("topics/" + params.t, hierarchy, topics);
+        const select = (topic, path) => {
+            selectedTopics.push(path.split("/")[1]);
+            for(let subPath in topic.subtopics) {
+                select(topic.subtopics[subPath], subPath);
+            }
         }
-    }
-    select(searchTopic, "topics/" + params.t);
+        select(searchTopic, "topics/" + params.t);
+    } else 
+        selectedTopics = Object.keys(topics).map(path => path.split("/")[1]);
     let noVids = true;
     Promise.all(selectedTopics.map(topic => db.collection("videos").where("topics", "array-contains", topic).get())).then((querySnapshots) => {
         querySnapshots.forEach((querySnapshot) => {
