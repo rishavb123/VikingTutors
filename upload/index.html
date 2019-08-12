@@ -58,6 +58,9 @@
         </div>
         <div class="form-group" id="topic-group">
             <label>Topics: </label>
+            <small id="topicHelp" class="form-text text-muted">If you select a topic, all of it's super topics will be automatically added. For example, if you select Biology, you do not need to select Science as well.</small>
+            <small id="topicHelp" class="form-text text-muted">Also, the more specific your topics is the easier it will be for students to find it.</small>
+            <small id="topicHelp" class="form-text text-muted">When you create a topic make sure to be careful since your topic will become public immediately and you CANNOT edit it once it is created</small>
             <div class="topic-container-container">
                 <div class="topic-container" id="topic-0"></div>
             </div>
@@ -65,7 +68,7 @@
         </div>
         <br />
         <br />
-        <button class="btn btn-primary upload-button">Upload</button>
+        <button class="btn btn-success upload-button">Upload</button>
     </div>
     <template id="dropdown-item-template">
         <li><a class="dropdown-item" href="../videos/index.html?t={{topic}}">{{name}}</a></li>
@@ -82,6 +85,7 @@
     <script src="../res/js/config.js"></script>
     <script src="../res/js/topics.js"></script>
     <script src="../res/js/auth.js"></script>
+    <script src="../res/js/root.js"></script>
     <script src="../res/js/nav.js"></script>
     <script src="../res/js/params.js"></script>
     <script>root = ".."</script>
