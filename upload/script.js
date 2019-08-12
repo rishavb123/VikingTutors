@@ -8,6 +8,11 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     updateUI(numOfTopics);
 }
 
+function onAuthStateChanged(user, domain) {
+    if(domain === "sbstudents.org")
+        location.href = root + "/index.html";
+}
+
 function updateUI(topicIndex) {
     let topicId = selectedTopicPath[topicIndex].split("/")[1] || "root";
     let curTopic = getFromHierarchy(selectedTopicPath[topicIndex], navResults.hierarchy, navResults.topics);
