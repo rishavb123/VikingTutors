@@ -2,10 +2,10 @@ let selectedTopicPath = [""];
 let navResults;
 let numOfTopics = 0;
 
-function name() {
-    console.log(selectedTopicPath.map(s => getFromHierarchy(s, navResults.hierarchy, navResults.topics).name));
-}
-setInterval(name, 1000);
+// function name() {
+//     console.log(selectedTopicPath.map(s => getFromHierarchy(s, navResults.hierarchy, navResults.topics).name));
+// }
+// setInterval(name, 1000);
 
 function onNavReady(querySnapshot, hierarchy, topics) {
     navResults = { querySnapshot, hierarchy, topics };
