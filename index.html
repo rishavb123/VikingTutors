@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Viking Tutors</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Courgette|Dancing+Script|Great+Vibes&display=swap" rel="stylesheet">    <link href="res/css/queries.css" rel="stylesheet" />
     <link href="res/css/nav.css" rel="stylesheet" />
     <link href="res/css/queries.css" rel="stylesheet" />
     <link href="res/css/scrollbar.css" rel="stylesheet" />
@@ -20,6 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/alexcorvi/anchorme.js/gh-pages/dist-browser/anchorme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js" integrity="sha256-oZUp5ULh9oikWgL4PJ/ceUdVHxFP0v2F1wQBC7iLuOQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.10.0/rellax.min.js" integrity="sha256-jyHh7xruaFLUoKPPnsSwEvYrBnzJczScRNnuh4Ysblc=" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -40,7 +42,6 @@
                         Topics
                     </a>
                     <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown"></ul>
-                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./profile/index.html">Profile</a>
@@ -52,12 +53,17 @@
             </form>
         </div>
     </nav>
-    <div id="test"></div>
-    <template id="video-template">
-        <h1>{{title}}</h1>
-        {{embed}}
-        <p>{{description}}</p>
-    </template>
+    <div id="container">
+        <h1 class="rellax" data-rellax-speed="-4">Welcome to Viking Tutors</h1>
+        <p class="rellax" id="heading-text" data-rellax-speed="7">A place for all South Brunswick students to access personalized studying material</p>
+        <div id="about">
+            <h2>About</h2>
+            <p id="about-text">Viking Tutors is a platform where South Brunswick high school teachers can upload videos for their students to view. Our platform is specific to South Brunswick so you will to get a personalized learning experience.</p>
+        </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>    
+    </div>
     <template id="dropdown-item-template">
         <li><a class="dropdown-item" href="videos/index.html?t={{topic}}">{{name}}</a></li>
     </template> 
@@ -83,6 +89,6 @@
     <script src="res/js/topics.js"></script>
     <script src="res/js/nav.js"></script>
     <script src="res/js/util.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

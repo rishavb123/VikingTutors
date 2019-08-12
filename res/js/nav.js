@@ -2,6 +2,9 @@ const db = firebase.firestore();
 
 const isTouchDevice = 'ontouchstart' in document.documentElement;
 
+if(!isTouchDevice)
+    $('#navbarDropdown').attr('data-toggle', 'dropdown');
+
 function onNavReady(querySnapshot, hierarchy, topics) {}
 
 db.collection("topics").get().then((querySnapshot) => {

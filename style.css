@@ -1,15 +1,46 @@
 body {
-    background-color: #b5b324;
+    background-color: #f5e837;
 }
 
-#test {
+#container {
     margin-left: 5vw;
     margin-right: 5vw;
     margin-top: 15vh;
+    width: 90vw;
 }
 
-iframe {
-    margin-left: 13vw;
-    width: 64vw;
-    height: 80vh;
+h1 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 700%;
+}
+
+#heading-text {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 200%;
+}
+
+#about-text {
+    text-align: center;
+    font-family: 'Courgette', cursive;
+}
+
+h2 {
+    color: red;
+    text-align: center;
+    padding-top: 5%;
+    margin-bottom: 5%;
+    font-size: 400%;
+    font-family: 'Caveat', cursive;
+}
+
+h2:after {
+    display: block;
+    height: 3px;
+    background-color: #555555;
+    content: " ";
+    width: 20vw;
+    margin: 0 auto;
+    margin-top: 4vh;
 }
