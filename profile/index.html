@@ -13,18 +13,18 @@
 <body>
     <script>
         firebase.auth().onAuthStateChanged(user => {
-        if(user) {
-            let domain = firebase.auth().currentUser.email.split("@")[1];
-            if(domain === "sbstudents.org")
-                location.href="./student/index.html";
-            else if(domain === "sbschools.org" || domain === "bhagat.io")
-                location.href="./teacher/index.html";
+            if(user) {
+                let domain = firebase.auth().currentUser.email.split("@")[1];
+                if(domain === "sbstudents.org")
+                    location.href="./student/index.html";
+                else if(domain === "sbschools.org" || domain === "bhagat.io")
+                    location.href="./teacher/index.html";
+                else
+                    firebase.auth().signOut();
+            }
             else
-                firebase.auth().signOut();
-        }
-        else
-            location.href="../login/index.html";
-    });
+                location.href="../login/index.html";
+        });
     </script>
 </body>
 </html>
