@@ -5,25 +5,116 @@ body {
 #container {
     margin-left: 5vw;
     margin-right: 5vw;
-    margin-top: 15vh;
     width: 90vw;
+}
+
+header {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(#000000b0, #928928c4), url('res/imgs/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
 h1 {
     text-align: center;
     font-family: 'Dancing Script', cursive;
     font-size: 700%;
+    animation: header-title 2s;
 }
 
 #heading-text {
     text-align: center;
     font-family: 'Dancing Script', cursive;
     font-size: 200%;
+    animation: header-text 2s;
 }
 
-#about-text {
-    text-align: center;
+@keyframes header-title{
+    0% {
+        opacity: 0%;
+        color: #ffffff00;
+        transform: translateY(-40vh);
+    }
+
+    60% {
+        color: #ffffff;
+        transform: translateY(10vh);
+    }
+
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
+@keyframes header-text{
+    0% {
+        color: #ffffff00;
+        transform: translateY(40vh);
+    }
+
+    60% {
+        color: #ffffff;
+        transform: translateY(-10vh);
+    }
+
+    100% {
+        transform: translateY(0vh);
+    }
+
+}
+
+.about-card {
+    width: 100%;
+    margin-bottom: 5vh;
+    min-height: 30vh;
+}
+
+.about-title {
+    background-color: rgb(41, 41, 41);
+    border-radius: 15px;
+    color: white;
+    width: 30%;
+    height: 30vh;
+    font-size: 230%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    transition: font-size 1s;
     font-family: 'Courgette', cursive;
+}
+
+.about-text {
+    background-color: rgb(161, 161, 161);
+    border-radius: 15px;
+    font-family: 'Courgette', cursive;
+    float: right;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    font-size: 130%;
+    transition: font-size 1s;
+}
+
+.about-text:hover {
+    font-size: 150%;
+}
+
+.about-title:hover {
+    font-size: 260%;
 }
 
 h2 {
@@ -43,4 +134,27 @@ h2:after {
     width: 20vw;
     margin: 0 auto;
     margin-top: 4vh;
+}
+
+@media only screen and (max-width: 800px) {
+    .about-title {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+    .about-card {
+        min-height: 60vh;
+    }
+
+    h1 {
+        font-size: 600%;
+    }
+
+    #heading-text {
+        font-size: 150%;
+    }
 }

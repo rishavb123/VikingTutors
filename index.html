@@ -8,7 +8,7 @@
     <title>Viking Tutors</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Caveat|Courgette|Dancing+Script|Great+Vibes&display=swap" rel="stylesheet">
-
+    <link href="res/css/queries.css" />
     <link href="res/css/nav.css" rel="stylesheet" />
     <link href="res/css/scrollbar.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
@@ -53,12 +53,25 @@
             </form>
         </div>
     </nav>
-    <div id="container">
+    <header>
         <h1 class="rellax" data-rellax-speed="-4">Welcome to Viking Tutors</h1>
         <p class="rellax" id="heading-text" data-rellax-speed="7">A place for all South Brunswick students to access personalized studying material</p>
+    </header>
+    <div id="container">
         <div id="about">
             <h2>About</h2>
-            <p id="about-text">Viking Tutors is a platform where South Brunswick high school teachers can upload videos for their students to view. Our platform is specific to South Brunswick so you will to get a personalized learning experience.</p>
+            <div class="about-card">
+                <h3 class="about-title">Quality</h3>
+                <p class="about-text">We ensure that our videos will help you succeed in the classroom.</p>
+            </div>
+            <div class="about-card">
+                <h3 class="about-title">Personalization</h3>
+                <p class="about-text">Our videos are designed by South Brunswick teachers so that they are relevant to your curriculum.</p>
+            </div>
+            <div class="about-card">
+                <h3 class="about-title">Accessibility</h3>
+                <p class="about-text"><span>Our videos can be found easily through the navigation bar or search bar. If anything feels out of place, please let us know at <a href="mailto:support@vikingtutors.org">support@vikingtutors.org</a>.</span></p>
+            </div>
         </div>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -85,8 +98,8 @@
     </template>
     <script src="res/js/config.js"></script>
     <script src="res/js/root.js"></script>
-    <script src="res/js/auth.js"></script>
-    <script>mustBeEmailVerified = false;</script>
+    <!-- <script src="res/js/auth.js"></script>
+    <script>mustBeEmailVerified = false;</script> -->
     <script src="res/js/topics.js"></script>
     <script src="res/js/nav.js"></script>
     <script src="res/js/util.js"></script>
