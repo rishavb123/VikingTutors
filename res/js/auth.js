@@ -1,4 +1,5 @@
 let mustBeEmailVerified = true;
+let mustBeSignedIn = true;
 
 function onAuthStateChanged(user, domain) {}
 
@@ -14,6 +15,6 @@ firebase.auth().onAuthStateChanged(user => {
                 onAuthStateChanged(user, domain);
         }
     }
-    else
+    else if(mustBeSignedIn)
         location.href= root + "/login/index.html";
 });

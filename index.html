@@ -54,8 +54,12 @@
         </div>
     </nav>
     <header>
-        <h1 class="rellax" data-rellax-speed="-4">Welcome to Viking Tutors</h1>
-        <p class="rellax" id="heading-text" data-rellax-speed="7">A place for all South Brunswick students to access personalized studying material</p>
+        <h1 class="rellax" data-rellax-speed="-3">Welcome to Viking Tutors</h1>
+        <p class="rellax" id="heading-text" data-rellax-speed="3">A place for all South Brunswick students to access personalized studying material</p>
+        <div class="rellax" data-rellax-speed="-4" id="heading-buttons">
+            <a class="btn btn-primary heading-btn" id="signInBtn" href="login/index.html">Sign In</a>
+            <a class="btn btn-success heading-btn" id="signUpBtn" href="signup/index.html">Sign Up</a>
+        </div>
     </header>
     <div id="container">
         <div id="about">
@@ -73,10 +77,32 @@
                 <p class="about-text"><span>Our videos can be found easily through the navigation bar or search bar. If anything feels out of place, please let us know at <a href="mailto:support@vikingtutors.org">support@vikingtutors.org</a>.</span></p>
             </div>
         </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>    
+        <div class="topics">
+            <h2>Topics</h2>
+            <div id="topicBoxes">
+
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
+    <template id="topic-box-template">
+        <div class="topic-box" style='background-image: linear-gradient(#00000098, #00000098), url("res/imgs/topics/{{name}}.png")'>
+            <h4 class="topic-box-title">{{name}}</h4>
+            <a class="btn btn-primary topic-box-link" href="videos/index.html?t={{topic}}">See Videos</a>
+        </div>
+    </template>
     <template id="dropdown-item-template">
         <li><a class="dropdown-item" href="videos/index.html?t={{topic}}">{{name}}</a></li>
     </template> 
@@ -98,8 +124,8 @@
     </template>
     <script src="res/js/config.js"></script>
     <script src="res/js/root.js"></script>
-    <!-- <script src="res/js/auth.js"></script>
-    <script>mustBeEmailVerified = false;</script> -->
+    <script src="res/js/auth.js"></script>
+    <script>mustBeEmailVerified = false; mustBeSignedIn = false;</script>
     <script src="res/js/topics.js"></script>
     <script src="res/js/nav.js"></script>
     <script src="res/js/util.js"></script>
