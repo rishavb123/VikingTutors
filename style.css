@@ -226,9 +226,13 @@ h2:after {
     margin-bottom: 5%;
     color: white;
     padding: 2vw;
-    transition: font-size 1s;
+    transition: font-size 1s, opacity 1s;
 }
 
 .topic-box:hover h4 {
     font-size: 300%;
+}
+
+.section {
+    margin-bottom: 3%;
 }
