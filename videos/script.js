@@ -41,7 +41,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
             });
         });
         if(noVids) 
-                $('#video-container').append("<p style='font-size: 200%'>Sorry there are currently no videos on this topic</p>");
+            $('#video-container').append("<p style='font-size: 200%'>Sorry there are currently no videos on this topic</p>");
     });
 }
 
