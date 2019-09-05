@@ -15,6 +15,10 @@ firebase.auth().onAuthStateChanged((user) => {
         $('#heading-buttons').remove();
 });
 
+const scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 1400
+});
+
 function onNavReady(snapshot, hierarchy, topics) {
     const source = $("#topic-box-template")[0].innerHTML;
     const topicBox = Handlebars.compile(source);
