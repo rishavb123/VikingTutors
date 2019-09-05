@@ -53,8 +53,16 @@
             </form>
         </div>
     </nav>
-    <div id="video-container" class="container"></div>
+    <div id="video-container" class="containers"></div>
     <template id="video-template">
+        <div class="video container" id={{id}}>
+            <img src={{thumbnails.medium.url}} class="thumbnail row" onclick="openVideo(event)"/>
+            <h1 class="row push">{{title}}</h1>
+            <p class="row teacher push">{{teacher}}</p>
+            <p class="row push">{{description}}</p>
+        </div>
+    </template>
+    <template id="video-template-2">
         <div class="video row" id={{id}}>
             <img src={{thumbnails.medium.url}} class="thumbnail col" onclick="openVideo(event)"/>
             <div class="video-text col">
