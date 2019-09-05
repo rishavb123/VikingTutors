@@ -22,10 +22,6 @@ body {
     overflow-y: auto;
 }
 
-.video:hover {
-    /* height: 25vw; */
-}
-
 .thumbnail {
     width: 40vw;
     min-width: 300px;
