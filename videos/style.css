@@ -10,7 +10,6 @@ body {
 
 .video {
     background-color: #c6c435;
-    margin-bottom: 2vh;
     width: 40vw;
     height: 30vw;
     min-width: 300px;
@@ -54,6 +53,7 @@ h1 {
         width: 90vw;
         height: 70vw;
         margin: 0;
+        margin-bottom: 2vh;
     }
 
     .thumbnail {
