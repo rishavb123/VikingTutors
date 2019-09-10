@@ -44,6 +44,12 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                         data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
                         const html = template(data);
                         $("#video-container").append(html);
+                        let items = $('#video-container').children().sort((a, b) => {
+                            titleA = $(a).children('h1')[0].innerHTML; 
+                            titleB = $(b).children('h1')[0].innerHTML; 
+                            return titleA < titleB? -1 : titleA > titleB? 1 : 0;
+                        });
+                        $('#video-container').append(items);
                     });
                 });
             });
