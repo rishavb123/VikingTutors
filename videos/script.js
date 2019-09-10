@@ -32,8 +32,16 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                                 value: "anchorme-link"
                             }]
                         }));
+                        function toTitleCase(str) {
+                            return str.replace(
+                                /\w\S*/g,
+                                function(txt) {
+                                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                                }
+                            );
+                        }
                         data.id = videoData.videoId;
-                        data.teacher = teacher.honorific + teacher.name.last;
+                        data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
                         const html = template(data);
                         $("#video-container").append(html);
                     });
