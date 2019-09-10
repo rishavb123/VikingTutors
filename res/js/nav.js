@@ -26,6 +26,12 @@ db.collection("topics").get().then((querySnapshot) => {
                     id: val.id,
                     topic: path.split("/")[1]
                 }));
+                let items = $("#" + menuId).children().sort((a, b) => {
+                    titleA = $(a).children('.dropdown-item')[0].innerHTML; 
+                    titleB = $(b).children('.dropdown-item')[0].innerHTML; 
+                    return titleA < titleB? -1 : titleA > titleB? 1 : 0;
+                });
+                $("#" + menuId).append(items);
             } else {
                 const id = path.replace("s/", "-");
                 $("#" + menuId).append(dropDownSubMenu({
@@ -34,6 +40,12 @@ db.collection("topics").get().then((querySnapshot) => {
                     topic: path.split("/")[1],
                     open: isTouchDevice? "show": ""
                 }));
+                let items = $("#" + menuId).children().sort((a, b) => {
+                    titleA = $(a).children('.dropdown-item')[0].innerHTML; 
+                    titleB = $(b).children('.dropdown-item')[0].innerHTML; 
+                    return titleA < titleB? -1 : titleA > titleB? 1 : 0;
+                });
+                $("#" + menuId).append(items);
                 display(id, val.subtopics);
             }
         }
