@@ -125,7 +125,7 @@ function openVideo(e) {
 function deleteVideo(e) {
     let vtid = $(e.target).attr('id');
     let videoName = $(e.target.parentNode).find("h1")[0].innerHTML;
-    let response = prompt("Please type the videos name (" + videoName + ") to confirm that you would like to delete this video. This action cannot be undone.");
+    let response = prompt("Please type the video's name (" + videoName + ") to confirm that you would like to delete this video. This action cannot be undone.");
     if(response == videoName) {
         db.collection("videos").doc(vtid).delete().then(() => {
             $(e.target.parentNode).remove();
