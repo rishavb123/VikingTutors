@@ -8,13 +8,6 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     updateUI(numOfTopics);
 }
 
-function onAuthStateChanged(user, domain) {
-    if(domain === "sbstudents.org")
-        location.href = root + "/index.html";
-    else
-        $(".navbar-nav").append(`<li class="nav-item"><a class="nav-link" href="${root}/upload/index.html">Upload</a></li>`);
-}
-
 function updateUI(topicIndex) {
     let topicId = selectedTopicPath[topicIndex].split("/")[1] || "root";
     let curTopic = getFromHierarchy(selectedTopicPath[topicIndex], navResults.hierarchy, navResults.topics);
@@ -73,3 +66,72 @@ $(".upload-button").click(() => {
         }).then(() => location.reload());
     });
 });
+
+const source = $("#video-template")[0].innerHTML;
+const template = Handlebars.compile(source);
+
+function onAuthStateChanged(user, domain) {
+    
+    if(domain === "sbstudents.org")
+        location.href = root + "/index.html";
+    else
+        $(".navbar-nav").append(`<li class="nav-item"><a class="nav-link" href="${root}/upload/index.html">Upload</a></li>`);
+    db.collection("teachers").where("uid", "==", firebase.auth().currentUser.uid).get().then((querySnapshot) => {
+    
+        db.collection("videos").where("teacher", "==", querySnapshot.docs[0].id).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                noVids = false;
+                let videoData = doc.data();
+                db.collection("teachers").doc(videoData.teacher).get().then(teacherDoc => {
+                    let teacher = teacherDoc.data();
+                    getVideoData(videoData.videoId, (data) => {
+                        data.embed = new Handlebars.SafeString(data.embed);
+                        data.description = new Handlebars.SafeString(anchorme(data.description.replace(/\n/g,"<br />"), {
+                            attributes: [{
+                                name: "class",
+                                value: "anchorme-link"
+                            }]
+                        }));
+                        function toTitleCase(str) {
+                            return str.replace(
+                                /\w\S*/g,
+                                function(txt) {
+                                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                                }
+                            );
+                        }
+                        data.id = videoData.videoId;
+                        data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
+                        data.vtId = doc.id;
+                        const html = template(data);
+                        $("#video-container").append(html);
+                        let items = $('#video-container').children().sort((a, b) => {
+                            titleA = $(a).children('h1')[0].innerHTML; 
+                            titleB = $(b).children('h1')[0].innerHTML; 
+                            return titleA < titleB? -1 : titleA > titleB? 1 : 0;
+                        });
+                        $('#video-container').append(items);
+                    });
+                });
+            });
+        });
+    });
+}
+
+function openVideo(e) {
+    location.href= "../watch/index.html?v=" + $(e.target.parentNode).attr('id');
+}
+
+function deleteVideo(e) {
+    let vtid = $(e.target).attr('id');
+    let videoName = $(e.target.parentNode).find("h1")[0].innerHTML;
+    let response = prompt("Please type the videos name (" + videoName + ") to confirm that you would like to delete this video. This action cannot be undone.");
+    if(response == videoName) {
+        db.collection("videos").doc(vtid).delete().then(() => {
+            $(e.target.parentNode).remove();
+            alert("Video Deleted Successfully!")
+        });
+    } else {
+        alert("Delete Cancelled!")
+    }
+}
