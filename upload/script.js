@@ -134,6 +134,9 @@ $(".upload-button-2").click(() => {
 const source = $("#video-template")[0].innerHTML;
 const template = Handlebars.compile(source);
 
+const source2 = $("#gdfile-template")[0].innerHTML;
+const template2 = Handlebars.compile(source2);
+
 function onAuthStateChanged(user, domain) {
     
     if(domain === "sbstudents.org")
@@ -142,9 +145,39 @@ function onAuthStateChanged(user, domain) {
         $(".navbar-nav").append(`<li class="nav-item"><a class="nav-link" href="${root}/upload/index.html">Upload</a></li>`);
     db.collection("teachers").where("uid", "==", firebase.auth().currentUser.uid).get().then((querySnapshot) => {
     
+        db.collection("gdrivefiles").where("teacher", "==", querySnapshot.docs[0].id).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                let fileData = doc.data();
+                db.collection("teachers").doc(fileData.teacher).get().then(teacherDoc => {
+                    let teacher = teacherDoc.data();
+                    let data = {};
+                    data.name = fileData.name;
+                    data.id = doc.id;
+                    data.url = new Handlebars.SafeString(fileData.url);
+                    data.description = new Handlebars.SafeString(anchorme(fileData.description));
+                    function toTitleCase(str) {
+                        return str.replace(
+                            /\w\S*/g,
+                            function(txt) {
+                                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                            }
+                        );
+                    }
+                    data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
+                    const html = template2(data);
+                    $("#gdfile-container").append(html);
+                    let items = $('#gdfile-container').children().sort((a, b) => {
+                        titleA = $(a).children('h1')[0].innerHTML; 
+                        titleB = $(b).children('h1')[0].innerHTML; 
+                        return titleA < titleB? -1 : titleA > titleB? 1 : 0;
+                    });
+                    $('#gdfile-container').append(items);
+                });
+            });
+        });
+
         db.collection("videos").where("teacher", "==", querySnapshot.docs[0].id).get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                noVids = false;
                 let videoData = doc.data();
                 db.collection("teachers").doc(videoData.teacher).get().then(teacherDoc => {
                     let teacher = teacherDoc.data();
@@ -192,6 +225,20 @@ function deleteVideo(e) {
     let response = prompt("Please type the video's name (" + videoName + ") to confirm that you would like to delete this video. This action cannot be undone.");
     if(response == videoName) {
         db.collection("videos").doc(vtid).delete().then(() => {
+            $(e.target.parentNode).remove();
+            alert("Video Deleted Successfully!")
+        });
+    } else {
+        alert("Delete Cancelled!")
+    }
+}
+
+function deleteFile(e) {
+    let vtid = $(e.target).attr('id');
+    let videoName = $(e.target.parentNode).find("h1")[0].innerHTML;
+    let response = prompt("Please type the video's name (" + videoName + ") to confirm that you would like to delete this video. This action cannot be undone.");
+    if(response == videoName) {
+        db.collection("gdrivefiles").doc(vtid).delete().then(() => {
             $(e.target.parentNode).remove();
             alert("Video Deleted Successfully!")
         });

@@ -16,6 +16,10 @@ body {
     position: relative;
 }
 
+.gdfile {
+    position: relative;
+}
+
 .delete-btn {
     position: absolute;
     top: 0;
@@ -40,3 +44,4 @@ h3:after {
     margin: 0 auto;
     margin-top: 4vh;
 }
+
