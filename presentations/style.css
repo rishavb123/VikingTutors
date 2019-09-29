@@ -1,0 +1,62 @@
+body {
+    background-color: #f5e837;
+}
+
+#video-container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 15vh;
+}
+
+.video {
+    background-color: #c6c435;
+    width: 40vw;
+    height: 30vw;
+    min-width: 300px;
+    border-radius: 5px;
+    transition: height 1s;
+    display: inline-block;
+    margin: 2vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.thumbnail {
+    width: 40vw;
+    min-width: 300px;
+    height: 50%;
+}
+
+.container {
+    max-width: none;
+}
+
+.push {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.anchorme-link {
+    width: 100%;
+}
+
+.teacher {
+    color: blue;
+}
+
+h1 {
+    font-size: 140%;
+}
+
+@media only screen and (max-width: 840px) {
+    .video {
+        width: 90vw;
+        height: 70vw;
+        margin: 0;
+        margin-bottom: 2vh;
+    }
+
+    .thumbnail {
+        width: 90vw;
+    }
+}
