@@ -61,21 +61,24 @@
             <button style="margin-left:1%" class="btn btn-danger logout-btn" onclick="if(firebase.auth().currentUser){firebase.auth().signOut();location.reload()}else alert('Not Signed In')">Logout</a>
         </div>
     </nav>
-    <div id="video-container"></div>
-    <template id="video-template">
-        <div class="video container" id={{id}}>
-            <img src={{thumbnails.medium.url}} class="thumbnail row" onclick="openVideo(event)"/>
+    <div id="gdfile-container"></div>
+    <template id="gdfile-template">
+        <div class="gdfile container" id={{url}}>
+            <iframe src={{url}} class="thumbnail row" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h1 class="row push">{{title}}</h1>
             <p class="row teacher push">{{teacher}}</p>
             <p class="row push">{{description}}</p>
+            <span class="row btn-container">
+                <button class="btn btn-success" onclick="openFile(event)">Open</button>
+            </span>
         </div>
     </template>
     <template id="dropdown-item-template">
-        <li><a class="dropdown-item" href="index.html?t={{topic}}">{{name}}</a></li>
+        <li><a class="dropdown-item" href="../videos/index.html?t={{topic}}">{{name}}</a></li>
     </template> 
     <template id="dropdown-submenu-template">
         <li class="dropdown-submenu">
-            <a class="dropdown-item" href="index.html?t={{topic}}">{{name}}</a>
+            <a class="dropdown-item" href="../videos/index.html?t={{topic}}">{{name}}</a>
             <a class="dropdown-toggle" href="#"></a>
             <ul class="dropdown-menu" id={{id}}>
             </ul>

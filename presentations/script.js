@@ -1,5 +1,5 @@
 function onNavReady(querySnapshot, hierarchy, topics) {
-    const source = $("#video-template")[0].innerHTML;
+    const source = $("#gdfile-template")[0].innerHTML;
     const template = Handlebars.compile(source);
 
     let params = getUrlParameters();
@@ -16,49 +16,42 @@ function onNavReady(querySnapshot, hierarchy, topics) {
         select(searchTopic, "topics/" + params.t);
     } else 
         selectedTopics = Object.keys(topics).map(path => path.split("/")[1]);
-    let noVids = true;
-    Promise.all(selectedTopics.map(topic => db.collection("videos").where("topics", "array-contains", topic).get())).then((querySnapshots) => {
+    let noFiles = true;
+    Promise.all(selectedTopics.map(topic => db.collection("gdrivefiles").where("topics", "array-contains", topic).get())).then((querySnapshots) => {
         querySnapshots.forEach((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                noVids = false;
-                let videoData = doc.data();
-                db.collection("teachers").doc(videoData.teacher).get().then(teacherDoc => {
+                noFiles = false;
+                let fileData = doc.data();
+                db.collection("teachers").doc(fileData.teacher).get().then(teacherDoc => {
                     let teacher = teacherDoc.data();
-                    getVideoData(videoData.videoId, (data) => {
-                        data.embed = new Handlebars.SafeString(data.embed);
-                        data.description = new Handlebars.SafeString(anchorme(data.description.replace(/\n/g,"<br />"), {
-                            attributes: [{
-                                name: "class",
-                                value: "anchorme-link"
-                            }]
-                        }));
-                        function toTitleCase(str) {
-                            return str.replace(
-                                /\w\S*/g,
-                                function(txt) {
-                                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-                                }
-                            );
-                        }
-                        data.id = videoData.videoId;
-                        data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
-                        const html = template(data);
-                        $("#video-container").append(html);
-                        let items = $('#video-container').children().sort((a, b) => {
-                            titleA = $(a).children('h1')[0].innerHTML; 
-                            titleB = $(b).children('h1')[0].innerHTML; 
-                            return titleA < titleB? -1 : titleA > titleB? 1 : 0;
-                        });
-                        $('#video-container').append(items);
+                    let data = {teacher};
+                    data.url = new Handlebars.SafeString(fileData.url);
+                    data.description = new Handlebars.SafeString(anchorme(fileData.description));
+                    function toTitleCase(str) {
+                        return str.replace(
+                            /\w\S*/g,
+                            function(txt) {
+                                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                            }
+                        );
+                    }
+                    data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
+                    const html = template(data);
+                    $("#gdfile-container").append(html);
+                    let items = $('#gdfile-container').children().sort((a, b) => {
+                        titleA = $(a).children('h1')[0].innerHTML; 
+                        titleB = $(b).children('h1')[0].innerHTML; 
+                        return titleA < titleB? -1 : titleA > titleB? 1 : 0;
                     });
+                    $('#gdfile-container').append(items);
                 });
             });
         });
-        if(noVids) 
-            $('#video-container').append("<p style='font-size: 200%'>Sorry there are currently no videos on this topic</p>");
+        if(noFiles) 
+            $('#gdfile-container').append("<p style='font-size: 200%'>Sorry there are currently no Google Drive Files on this topic</p>");
     });
 }
 
-function openVideo(e) {
-    location.href= "../watch/index.html?v=" + $(e.target.parentNode).attr('id');
+function openFile(e) {
+    location.href= "../file/index.html?f=" + $(e.target.parentNode).attr('id');
 }
