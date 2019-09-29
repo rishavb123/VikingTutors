@@ -41,6 +41,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="#topics">Topics</a>
+                    </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                         Videos
@@ -98,7 +101,10 @@
     <template id="topic-box-template">
         <div class="topic-box" style='background-image: linear-gradient(#00000098, #00000098), url("res/imgs/topics/{{name}}.png")'>
             <h4 class="topic-box-title">{{name}}</h4>
-            <a class="btn btn-primary topic-box-link" href="videos/index.html?t={{topic}}">Explore Videos</a>
+            <div class="btn-group topic-box-link">
+                <a class="btn btn-primary explore" href="videos/index.html?t={{topic}}">Videos</a>
+                <a class="btn btn-secondary explore" href="presentations/index.html?t={{topic}}">Presentations</a>
+            </div>
         </div>
     </template>
     <template id="dropdown-item-template">
