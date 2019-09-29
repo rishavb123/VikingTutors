@@ -219,6 +219,10 @@ function openVideo(e) {
     location.href= "../watch/index.html?v=" + $(e.target.parentNode).attr('id');
 }
 
+function openFile(e) {
+    location.href= "../file/index.html?f=" + $(e.target.parentNode.parentNode).attr('id');
+}
+
 function deleteVideo(e) {
     let vtid = $(e.target).attr('id');
     let videoName = $(e.target.parentNode).find("h1")[0].innerHTML;
@@ -236,11 +240,11 @@ function deleteVideo(e) {
 function deleteFile(e) {
     let vtid = $(e.target).attr('id');
     let videoName = $(e.target.parentNode).find("h1")[0].innerHTML;
-    let response = prompt("Please type the video's name (" + videoName + ") to confirm that you would like to delete this video. This action cannot be undone.");
+    let response = prompt("Please type the video's name (" + videoName + ") to confirm that you would like to delete this file. This action cannot be undone.");
     if(response == videoName) {
         db.collection("gdrivefiles").doc(vtid).delete().then(() => {
             $(e.target.parentNode).remove();
-            alert("Video Deleted Successfully!")
+            alert("File Deleted Successfully!")
         });
     } else {
         alert("Delete Cancelled!")
