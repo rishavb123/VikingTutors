@@ -63,15 +63,17 @@
         </div>
     </nav>
     <div class="upload-form-container">
+        <h2>Upload a Video</h2>
+        <p>Name and description are read in from Youtube</p>
         <div class="form-group">
-            <label for="linkInput">Youtube Video Link</label>
+            <label for="linkInput">Youtube Video Link:</label>
             <input type="url" class="form-control" id="linkInput" placeholder="Youtube link">
         </div>
         <div class="form-group" id="topic-group">
             <label>Topics: </label>
-            <small id="topicHelp" class="form-text text-muted">If you select a topic, all of it's super topics will be automatically added. For example, if you select Biology, you do not need to select Science as well.</small>
-            <small id="topicHelp" class="form-text text-muted">Also, the more specific your topics is the easier it will be for students to find it.</small>
-            <small id="topicHelp" class="form-text text-muted">When you create a topic make sure to be careful since your topic will become public immediately and you CANNOT edit it once it is created</small>
+            <small class="form-text text-muted">If you select a topic, all of it's super topics will be automatically added. For example, if you select Biology, you do not need to select Science as well.</small>
+            <small class="form-text text-muted">Also, the more specific your topics is the easier it will be for students to find it.</small>
+            <small class="form-text text-muted">When you create a topic make sure to be careful since your topic will become public immediately and you CANNOT edit it once it is created</small>
             <div class="topic-container-container">
                 <div class="topic-container" id="topic-0"></div>
             </div>
@@ -80,6 +82,34 @@
         <br />
         <br />
         <button class="btn btn-success upload-button">Upload</button>
+    </div>
+    <div class="upload-form-container">
+        <h2>Upload a Google Slides Presentation</h2>
+        <div class="form-group">
+            <label for="nameInput">File Name:</label>
+            <input type="url" class="form-control" id="nameInput" placeholder="File Name">
+        </div>
+        <div class="form-group">
+            <label for="descriptionInput">Description:</label>
+            <input type="url" class="form-control" id="descriptionInput" placeholder="Description">
+        </div>
+        <div class="form-group">
+            <label for="embedCodeInput">Embed Code:</label>
+            <input type="url" class="form-control" id="embedCodeInput" placeholder="Embed Code">
+        </div>
+        <div class="form-group" id="topic-group">
+            <label>Topics: </label>
+            <small class="form-text text-muted">If you select a topic, all of it's super topics will be automatically added. For example, if you select Biology, you do not need to select Science as well.</small>
+            <small class="form-text text-muted">Also, the more specific your topics is the easier it will be for students to find it.</small>
+            <small class="form-text text-muted">When you create a topic make sure to be careful since your topic will become public immediately and you CANNOT edit it once it is created</small>
+            <div class="topic-container-container-2">
+                <div class="topic-container" id="topic2-0"></div>
+            </div>
+            <button class="btn btn-primary" id="addTopicButton2">Add Topic</button>
+        </div>
+        <br />
+        <br />
+        <button class="btn btn-success upload-button-2">Upload</button>
     </div>
     <h3>My Videos</h3>
     <div id="video-container"></div>
