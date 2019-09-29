@@ -38,9 +38,16 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Topics
+                        Videos
                     </a>
                     <ul class="dropdown-menu" id="topic-root" aria-labelledby="navbarDropdown"></ul>
+                    
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Presentations
+                    </a>
+                    <ul class="dropdown-menu" id="topic-root-2" aria-labelledby="navbarDropdown2"></ul>
                     
                 </li>
                 <li class="nav-item">
@@ -98,6 +105,25 @@
     <template id="dropdown-submenu-template-mobile">
         <li class="dropdown-submenu">
             <a class="dropdown-item" href="../../videos/index.html?t={{topic}}">{{name}}<a class="toggle" id="toggle_{{id}}" href="#">&#x25BC;</a></a>
+            
+            <ul class="dropdown-menu" id={{id}}>
+            </ul>
+        </li>
+    </template>
+    <template id="dropdown-item-template-2">
+        <li><a class="dropdown-item" href="../../presentations/index.html?t={{topic}}">{{name}}</a></li>
+    </template> 
+    <template id="dropdown-submenu-template-2">
+        <li class="dropdown-submenu">
+            <a class="dropdown-item" href="../../presentations/index.html?t={{topic}}">{{name}}</a>
+            <a class="dropdown-toggle" href="#"></a>
+            <ul class="dropdown-menu" id={{id}}>
+            </ul>
+        </li>
+    </template>
+    <template id="dropdown-submenu-template-mobile-2">
+        <li class="dropdown-submenu">
+            <a class="dropdown-item" href="../../presentations/index.html?t={{topic}}">{{name}}<a class="toggle" id="toggle_{{id}}" href="#">&#x25BC;</a></a>
             
             <ul class="dropdown-menu" id={{id}}>
             </ul>
