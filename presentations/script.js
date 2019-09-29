@@ -24,7 +24,8 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                 let fileData = doc.data();
                 db.collection("teachers").doc(fileData.teacher).get().then(teacherDoc => {
                     let teacher = teacherDoc.data();
-                    let data = {teacher};
+                    let data = {};
+                    data.name = fileData.name;
                     data.id = doc.id;
                     data.url = new Handlebars.SafeString(fileData.url);
                     data.description = new Handlebars.SafeString(anchorme(fileData.description));
