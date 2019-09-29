@@ -25,6 +25,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                 db.collection("teachers").doc(fileData.teacher).get().then(teacherDoc => {
                     let teacher = teacherDoc.data();
                     let data = {teacher};
+                    data.id = doc.id;
                     data.url = new Handlebars.SafeString(fileData.url);
                     data.description = new Handlebars.SafeString(anchorme(fileData.description));
                     function toTitleCase(str) {
@@ -53,5 +54,5 @@ function onNavReady(querySnapshot, hierarchy, topics) {
 }
 
 function openFile(e) {
-    location.href= "../file/index.html?f=" + $(e.target.parentNode).attr('id');
+    location.href= "../file/index.html?f=" + $(e.target.parentNode.parentNode).attr('id');
 }
