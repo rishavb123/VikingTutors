@@ -61,11 +61,11 @@
             <button style="margin-left:1%" class="btn btn-danger logout-btn" onclick="if(firebase.auth().currentUser){firebase.auth().signOut();location.reload()}else alert('Not Signed In')">Logout</a>
         </div>
     </nav>
-    <div id="video-container"></div>
-    <template id="video-template">
-        {{embed}}
-        <div class="video-text">
-            <h1>{{title}}</h1>
+    <div id="gdfile-container"></div>
+    <template id="gdfile-template">
+        <iframe src={{url}} class="thumbnail row" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <div class="gdfile-text">
+            <h1>{{name}}</h1>
             <p class="teacher">{{teacher}}</p>
             <p >{{description}}</p>
         </div>
