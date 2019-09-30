@@ -8,6 +8,11 @@ body {
     margin-top: 15vh;
 }
 
+#tut-video-container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
 .topic-container {
     margin-bottom: 2vh;
 }
