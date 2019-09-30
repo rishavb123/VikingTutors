@@ -112,12 +112,15 @@
         <br />
         <button class="btn btn-success upload-button-2">Upload</button>
     </div>
-    <!-- <h3>Need Help Uploading</h3>
-    <p>Here we have video tutorials on how to upload videos and presentations to our site.</p> -->
     <h3>My Videos</h3>
     <div id="video-container"></div>
     <h3>My Presentations</h3>
     <div id="gdfile-container"></div>
+    <div class="need-help">
+        <h3>Need Help Uploading</h3>
+        <p>Here we have video tutorials on how to upload videos and presentations to our site.</p>
+        <div id="tut-video-container"></div>
+    </div>
     <template id="gdfile-template">
         <div class="gdfile container" id={{id}}>
             <iframe src={{url}} class="thumbnail row" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -137,6 +140,14 @@
             <p class="row teacher push">{{teacher}}</p>
             <p class="row push">{{description}}</p>
             <button class="delete-btn btn btn-danger" id={{vtId}} onclick="deleteVideo(event)">X</button>
+        </div>
+    </template>
+    <template id="video-template-2">
+        <div class="video container" id={{id}}>
+            <img src={{thumbnails.medium.url}} class="thumbnail row" onclick="openVideo(event)"/>
+            <h1 class="row push">{{title}}</h1>
+            <p class="row teacher push">{{teacher}}</p>
+            <p class="row push">{{description}}</p>
         </div>
     </template>
     <template id="dropdown-item-template">
