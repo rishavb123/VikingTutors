@@ -13,6 +13,14 @@ body {
     margin-right: 5vw;
 }
 
+#video-container {
+    margin-top: 0;
+}
+
+#gdfile-container {
+    margin-top: 0;
+}
+
 .topic-container {
     margin-bottom: 2vh;
 }
