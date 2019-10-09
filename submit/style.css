@@ -1,0 +1,12 @@
+.form {
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+iframe {
+    overflow: scroll;
+    height: 100%;
+}
