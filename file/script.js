@@ -12,7 +12,15 @@ function onNavReady(querySnapshot, hierarchy, topics) {
             data.name = fileData.name
             data.description = new Handlebars.SafeString(anchorme(fileData.description));
             data.url = fileData.url;
-            data.teacher = teacher.honorific + teacher.name.last;
+            function toTitleCase(str) {
+                return str.replace(
+                    /\w\S*/g,
+                    function(txt) {
+                        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                    }
+                );
+            }
+            data.teacher = data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);;
             const html = template(data);
             $("#gdfile-container").append(html);
         });
