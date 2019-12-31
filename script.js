@@ -7,6 +7,10 @@ $(window).resize(function() {
     $(".about-title").css("height", $(".about-text").height());
 });
 
+if(!isTouchDevice) {
+    $('#navbarDropdown3').attr('data-toggle', 'dropdown');
+}
+
 if('ontouchstart' in window)
     $('header').addClass('mobile-header');
 
