@@ -1,4 +1,4 @@
-const honorifics = ['Mr. ', 'Mrs. ', 'Ms. ', 'Dr. ', 'Miss ', 'Sir ', 'Lord ', 'Lady '];
+const honorifics = Array.prototype.slice.call(document.getElementsByTagName("option"), 0).map(tag => tag.innerHTML);
 let docId = "";
 firebase.auth().onAuthStateChanged(user => {
     if(user) {
@@ -14,11 +14,10 @@ firebase.auth().onAuthStateChanged(user => {
         db.collection("teachers").where("uid", "==", user.uid).get().then((querySnapshot) => {
             let data = querySnapshot.docs[0].data();
             docId = querySnapshot.docs[0].id;
-            document.getElementById("titleInput").selectedIndex = honorifics.indexOf(data.honorific);
+            document.getElementById("titleInput").selectedIndex = honorifics.indexOf(data.honorific == null? "None ": data.honorific);
             $("#firstNameInput").val(data.name.first);
             $("#lastNameInput").val(data.name.last);
         });
-        console.log(user.displayName);
     }
     else
         location.href="../../login/index.html";
@@ -30,7 +29,7 @@ $('.save-button').click(() => {
             first: $('#firstNameInput').val(),
             last: $("#lastNameInput").val()
         },
-        honorific: honorifics[document.getElementById("titleInput").selectedIndex]
+        honorific: honorifics[document.getElementById("titleInput").selectedIndex] == "None "? null:honorifics[document.getElementById("titleInput").selectedIndex]
     };
     Promise.all([
         db.collection("teachers").doc(docId).update(data),

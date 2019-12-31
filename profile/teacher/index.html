@@ -87,6 +87,7 @@
                 <option>Ms. </option>
                 <option>Dr. </option>
                 <option>Miss </option>
+                <option>None </option>
             </select>
         </div>
         <button class="btn btn-light" onclick="firebase.auth().sendPasswordResetEmail(firebase.auth().currentUser.email).then(() => alert('Email Sent')).catch(() => alert('Error Sending Email: ' + e))">Reset Password</button>

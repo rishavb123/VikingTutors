@@ -37,7 +37,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
                             }
                         );
                     }
-                    data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
+                    data.teacher = (teacher.honorific && teacher.name && teacher.name.last)? teacher.honorific + teacher.name.last : (teacher.name && teacher.name.first && teacher.name.last)? teacher.name.first + " " + teacher.name.last : toTitleCase(teacher.email.split('.')[0] + " " + teacher.email.split("@")[0].split('.')[1]);
                     const html = template(data);
                     $("#gdfile-container").append(html);
                     let items = $('#gdfile-container').children().sort((a, b) => {
