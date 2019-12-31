@@ -65,6 +65,14 @@
             color: white;
         }
 
+        .text:hover {
+            text-decoration: underline;
+        }
+
+        .text {
+            margin: 0;
+        }
+
         input {
             min-width: 35%;
         }
@@ -80,6 +88,8 @@
         <h2>Sign In</h1>
         <input type="text" id="emailField" placeholder="Email"/>
         <input type="password" id="passwordField" placeholder="Password"/>
+        <p class='text' onclick="if(prompt('Confirm that you would like to send a password reset email to ' + document.getElementById('emailField').value + ' (Y/n)').toLowerCase().charAt(0) == 'y')firebase.auth().sendPasswordResetEmail(document.getElementById('emailField').value).then(() => alert('Email Sent')).catch(e => alert('Error Sending Email: ' + e))">Forgot Password</p>
+            
         <button class="btn btn-success" id="signInBtn">Sign In</button>
         <p>Don't have an account?</p>
         <a href="../signup/index.html" class="btn btn-primary">Sign Up</a>
