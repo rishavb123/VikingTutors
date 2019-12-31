@@ -6,6 +6,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Viking Tutors</title>
+    <link rel='icon' href='../res/imgs/favicon.png' />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Caveat|Courgette|Dancing+Script|Great+Vibes&display=swap" rel="stylesheet">
     <link href="../res/css/nav.css" rel="stylesheet" />   
@@ -26,7 +27,7 @@
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../index.html">
             <img src="../res/imgs/logo.png" id="logo"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +71,9 @@
         </div>
     </nav>
     <div class="upload-form-container">
-        <h2>Upload a Video</h2>
+        <h1 style="font-size: 400%; color: gray">Upload Page</h1>
+        <a href="../help/index.html">Need Help Uploading? Click Here!</a>
+        <h2 style="margin-top: 3vh">Upload a Video</h2>
         <p>Name and description are read in from Youtube</p>
         <div class="form-group">
             <label for="linkInput">Youtube Video Link:</label>
@@ -122,11 +125,6 @@
     <div id="video-container"></div>
     <h3>My Presentations</h3>
     <div id="gdfile-container"></div>
-    <div class="need-help">
-        <h3>Need Help Uploading</h3>
-        <p id="center-text">Here we have video tutorials on how to upload videos and presentations to our site.</p>
-        <div id="tut-video-container"></div>
-    </div>
     <template id="gdfile-template">
         <div class="gdfile container" id={{id}}>
             <iframe src={{url}} class="thumbnail row" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

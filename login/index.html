@@ -6,6 +6,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <link rel='icon' href='../res/imgs/favicon.png' />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -64,6 +65,14 @@
             color: white;
         }
 
+        .text:hover {
+            text-decoration: underline;
+        }
+
+        .text {
+            margin: 0;
+        }
+
         input {
             min-width: 35%;
         }
@@ -79,6 +88,8 @@
         <h2>Sign In</h1>
         <input type="text" id="emailField" placeholder="Email"/>
         <input type="password" id="passwordField" placeholder="Password"/>
+        <p class='text' onclick="if(prompt('Confirm that you would like to send a password reset email to ' + document.getElementById('emailField').value + ' (Y/n)').toLowerCase().charAt(0) == 'y')firebase.auth().sendPasswordResetEmail(document.getElementById('emailField').value).then(() => alert('Email Sent')).catch(e => alert('Error Sending Email: ' + e))">Forgot Password</p>
+            
         <button class="btn btn-success" id="signInBtn">Sign In</button>
         <p>Don't have an account?</p>
         <a href="../signup/index.html" class="btn btn-primary">Sign Up</a>

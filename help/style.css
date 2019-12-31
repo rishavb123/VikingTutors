@@ -1,0 +1,63 @@
+body {
+    background-color: #f5e837;
+}
+
+.upload-form-container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 15vh;
+}
+
+#tut-video-container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+#video-container {
+    margin-top: 0;
+}
+
+#gdfile-container {
+    margin-top: 0;
+}
+
+.topic-container {
+    margin-bottom: 2vh;
+}
+
+.video {
+    position: relative;
+}
+
+.gdfile {
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+h3 {
+    color: red;
+    text-align: center;
+    padding-top: 5%;
+    margin-bottom: 5%;
+    font-size: 300%;
+    font-family: 'Caveat', cursive;
+}
+
+h3:after {
+    display: block;
+    height: 3px;
+    background-color: #555555;
+    content: " ";
+    width: 20vw;
+    margin: 0 auto;
+    margin-top: 4vh;
+}
+
+#center-text{
+    text-align: center;
+}
