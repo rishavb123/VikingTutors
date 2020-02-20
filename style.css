@@ -30,14 +30,14 @@ header {
 
 h1 {
     text-align: center;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Courgette', cursive;
     font-size: 700%;
     animation: header-title 2s;
 }
 
 #heading-text {
     text-align: center;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Courgette', cursive;
     font-size: 200%;
     animation: header-text 2s;
 }
@@ -149,14 +149,14 @@ h1 {
     font-size: 130%;
     transition: font-size 1s;
 }
-
+/* 
 .about-text:hover {
     font-size: 150%;
 }
 
 .about-title:hover {
     font-size: 260%;
-}
+} */
 
 h2 {
     color: red;
@@ -164,7 +164,7 @@ h2 {
     padding-top: 5%;
     margin-bottom: 5%;
     font-size: 400%;
-    font-family: 'Caveat', cursive;
+    font-family: 'Courgette', cursive;
 }
 
 h2:after {
@@ -235,4 +235,13 @@ h2:after {
 
 .section {
     margin-bottom: 3%;
+}
+
+.question {
+    font-size: 200%;
+}
+
+.answer {
+    margin-left: 5%;
+    font-size: 130%;
 }
