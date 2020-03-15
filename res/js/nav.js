@@ -7,6 +7,13 @@ if(!isTouchDevice) {
     $('#navbarDropdown2').attr('data-toggle', 'dropdown');
 }
 
+function searchTeachers() {
+    if($('#search_field').val().length == 0)
+        alert("Search Field Is Empty");
+    else
+        location.href = "https://vikingtutors.org/videos/index.html?teacher=" + $('#search_field').val();
+}
+
 function onNavReady(querySnapshot, hierarchy, topics) {}
 
 db.collection("topics").get().then((querySnapshot) => {
