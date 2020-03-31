@@ -7,6 +7,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     let noVids = true;
 
     if(params.teacher) {
+        return;
         let names = params.teacher.split(" ");
         let teachers = [];
         db.collection("teachers").get().then((querySnapshot) => {
