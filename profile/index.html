@@ -17,7 +17,7 @@
                 let domain = firebase.auth().currentUser.email.split("@")[1];
                 if(domain === "sbstudents.org")
                     location.href="./student/index.html";
-                else if(domain === "sbschools.org" || domain === "bhagat.io")
+                else if(domain === "sbschools.org" || domain === "bhagat.io"  || domain === "vikingtutors.org")
                     location.href="./teacher/index.html";
                 else
                     firebase.auth().signOut();

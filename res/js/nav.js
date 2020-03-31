@@ -117,6 +117,6 @@ db.collection("topics").get().then((querySnapshot) => {
 });
 
 function onAuthStateChanged(user, domain) {
-    if(domain === "bhagat.io" || domain === "sbschools.org")
+    if(domain === "bhagat.io" || domain === "sbschools.org" || domain === "vikingtutors.org")
         $(".navbar-nav").append(`<li class="nav-item"><a class="nav-link" href="${root}/upload/index.html">Upload</a></li>`);
 }
