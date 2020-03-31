@@ -3,7 +3,7 @@ let docId = "";
 firebase.auth().onAuthStateChanged(user => {
     if(user) {
         let domain = firebase.auth().currentUser.email.split("@")[1];
-        if(domain !== "sbschools.org" && domain !== "bhagat.io")
+        if(domain !== "sbschools.org" && domain !== "bhagat.io" && domain !== "vikingtutors.org")
             if(domain !== "sbstudents.org")
                 firebase.auth().signOut();
             else
