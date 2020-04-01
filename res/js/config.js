@@ -9,4 +9,4 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const API_KEY = "AIzaSyAqIAzdRsjJOpYAK8tfWK2VZfRYbgbKTfg";
+const API_KEY = "AIzaSyB8qPtytMIl8RVIiGijMse6lvI4JQiVT9M";
