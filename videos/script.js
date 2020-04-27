@@ -3,6 +3,7 @@ function onNavReady(querySnapshot, hierarchy, topics) {
     const template = Handlebars.compile(source);
 
     let params = getUrlParameters();
+    if(params.t && params.t == 'dmuOe4mxyGviPkmOzeql') location.href="../streams/index.html"
 
     let noVids = true;
 

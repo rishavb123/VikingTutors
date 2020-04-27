@@ -1,0 +1,23 @@
+body {
+    background-color: #f5e837;
+}
+
+.main {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 15vh;
+}
+.teacher-things {
+    background-color: #e6db4a;
+    padding: 2%;
+    margin-bottom: 3%;
+}
+.livestream {
+    background-color: #e6db4a;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+}
